@@ -3,88 +3,153 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shop - B6 Vintage Cloth Store</title>
+  <title>B6 Vintage Cloth Store - Shop</title>
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-  <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     body {
-      background-color: #000;
-      color: #FFD700; /* gold */
-      font-family: 'Roboto', sans-serif;
+      background: radial-gradient(circle at top, #000000 60%, #1a1a1a 100%);
+      color: #FFD700;
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
     }
 
-    .navbar, footer {
-      background-color: #111;
+    .navbar {
+      background-color: rgba(17, 17, 17, 0.9);
+      border-bottom: 2px solid #FFD700;
+      backdrop-filter: blur(6px);
     }
 
-    .navbar a, .navbar-brand {
+    .navbar-brand, .nav-link {
       color: #FFD700 !important;
+      font-weight: 600;
+      letter-spacing: 0.5px;
     }
 
-    .navbar a:hover {
+    .navbar-brand:hover, .nav-link:hover {
       color: #fff !important;
     }
 
-    h1, h2 {
-      color: #FFD700;
-      text-shadow: 0 0 10px #FFD700;
+    /* Search Bar */
+    .search-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 50px 0 30px;
     }
 
-    .category-card {
-      background-color: #111;
-      border: 2px solid #FFD700;
-      border-radius: 15px;
-      text-align: center;
-      padding: 30px;
-      transition: 0.4s ease-in-out;
-      box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    .search-container {
+      position: relative;
+      width: 60%;
     }
 
-    .category-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
-    }
-
-    .category-card img {
+    .search-container input {
       width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
-      transition: 0.4s;
+      padding: 12px 45px 12px 20px;
+      border: 2px solid #FFD700;
+      border-radius: 50px;
+      background-color: #000;
+      color: #FFD700;
+      font-size: 16px;
+      outline: none;
+      transition: 0.3s ease-in-out;
     }
 
-    .category-card img:hover {
-      filter: brightness(1.2);
+    .search-container input:focus {
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
     }
 
-    a.btn-gold {
-      background-color: #FFD700;
-      color: #000;
+    .search-container i {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #FFD700;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    h1 {
+      text-align: center;
+      color: #FFD700;
+      margin-bottom: 20px;
+      text-shadow: 0 0 15px #FFD700;
+      font-weight: 700;
+    }
+
+    .divider {
+      width: 80px;
+      height: 3px;
+      background: #FFD700;
+      margin: 0 auto 50px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px #FFD700;
+    }
+
+    .category {
+      background: rgba(17, 17, 17, 0.9);
+      border: 2px solid #FFD700;
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.15);
+      backdrop-filter: blur(5px);
+      transition: all 0.4s ease-in-out;
+    }
+
+    .category:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 40px rgba(255, 215, 0, 0.4);
+    }
+
+    .category h2 {
+      color: #FFD700;
+      margin-bottom: 20px;
       font-weight: 600;
-      border-radius: 8px;
-      padding: 10px 20px;
-      text-decoration: none;
-      transition: 0.3s;
     }
 
-    a.btn-gold:hover {
-      background-color: #fff;
+    .subcategory {
+      margin-top: 10px;
+    }
+
+    .subcategory-item {
+      background: linear-gradient(145deg, #111, #000);
+      border: 1px solid #FFD700;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 12px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      color: #FFD700;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    .subcategory-item:hover {
+      background: #FFD700;
       color: #000;
+      transform: translateY(-4px);
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
     }
 
     footer {
+      background-color: #111;
       color: #FFD700;
       text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-      border-top: 1px solid #333;
+      padding: 15px;
+      margin-top: 60px;
+      border-top: 2px solid #FFD700;
     }
   </style>
+  <script src="https://kit.fontawesome.com/a2e0d6a2d7.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
   <nav class="navbar navbar-expand-lg navbar-dark shadow">
     <div class="container">
-      <a class="navbar-brand" href="index.html">B6 Vintage Store</a>
+      <a class="navbar-brand" href="#">B6 Vintage Store</a>
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
@@ -96,42 +161,61 @@
     </div>
   </nav>
 
-  <section class="container text-center py-5">
-    <h1 class="mb-5">Shop by Category</h1>
-    <div class="row g-4">
-      
-      <!-- Glasses -->
-      <div class="col-md-4">
-        <div class="category-card">
-          <img src="assets/img/glasses_category.jpg" alt="Glasses">
-          <h3>Watch</h3>
-          <a href="glasses.html" class="btn-gold mt-2">Explore</a>
-        </div>
-      </div>
+  <div class="search-bar">
+    <div class="search-container">
+      <input type="text" placeholder="Search for items...">
+      <i class="fas fa-search"></i>
+    </div>
+  </div>
 
-      <!-- Outfits -->
-      <div class="col-md-4">
-        <div class="category-card">
-          <img src="assets/img/outfits_category.jpg" alt="Outfits">
-          <h3>Outfits</h3>
-          <a href="outfits.html" class="btn-gold mt-2">Explore</a>
-        </div>
-      </div>
+  <div class="container">
+    <h1>Shop by Category</h1>
+    <div class="divider"></div>
+    <div class="row g-5">
 
       <!-- Shoes -->
       <div class="col-md-4">
-        <div class="category-card">
-          <img src="assets/img/shoes_category.jpg" alt="Shoes">
-          <h3>Shoes</h3>
-          <a href="shoes.html" class="btn-gold mt-2">Explore</a>
+        <div class="category">
+          <h2>Shoes</h2>
+          <div class="subcategory">
+            <a href="nike.html" class="subcategory-item text-decoration-none d-block">Nike</a>
+            <a href="adidas.html" class="subcategory-item text-decoration-none d-block">Adidas</a>
+            <a href="puma.html" class="subcategory-item text-decoration-none d-block">Puma</a>
+          </div>
         </div>
       </div>
+
+      <!-- Accessories -->
+      <div class="col-md-4">
+        <div class="category">
+          <h2>Accessories</h2>
+          <div class="subcategory">
+            <div class="subcategory-item">Watches</div>
+            <div class="subcategory-item">Belts</div>
+            <div class="subcategory-item">Bags</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dress -->
+      <div class="col-md-4">
+        <div class="category">
+          <h2>Dress</h2>
+          <div class="subcategory">
+            <div class="subcategory-item">Casual Wear</div>
+            <div class="subcategory-item">Formal Wear</div>
+            <div class="subcategory-item">Vintage Style</div>
+          </div>
+        </div>
+      </div>
+
     </div>
-  </section>
+  </div>
 
   <footer>
-    <p>© 2025 B6 Vintage Cloth Store | Designed by <strong>Rohan Philip Mathew</strong></p>
+    <p>© 2025 B6 Vintage Cloth Store | Designed by <strong>B6Innovations</strong></p>
   </footer>
+
   <script src="assets/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
